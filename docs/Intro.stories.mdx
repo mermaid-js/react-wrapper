@@ -1,0 +1,180 @@
+import { Meta, Preview } from '@storybook/addon-docs/blocks';
+import { Mermaid } from '@';
+
+<Meta title="Mermaid for React" component={Mermaid} />
+
+# Mermaid for React
+
+---
+
+Mermaid for React lets you generate great-looking diagrams from markdown-like text.
+
+<Preview>
+  <Mermaid>{`
+    graph LR
+    C[Client] <--> LB{{Load Balancer}}
+    LB --> A[Server A]
+    LB --> B[Server B]
+  `}</Mermaid>
+</Preview>
+
+Mermaid for React is a wrapper for the [Mermaid](https://mermaid-js.github.io/mermaid/) diagramming library. It supports all mermaid diagrams including [flowcharts](#flowcharts), [sequence diagrams](#sequence-diagrams), [gantt charts](#gantt-charts), [class diagrams](#class-diagrams), [state diagrams](#state-diagrams) and [more](#pie-charts). It was developed to add diagram support to [Storybook Docs](https://www.npmjs.com/package/@storybook/addon-docs), but it can be used inside _any_ React project.
+
+## Flowcharts
+
+Mermaid's `graph` directive is a powerful way to show everything from simple flowcharts to complex topologies. Here's a simple example to start:
+
+<Preview>
+  <Story name="Flow">
+    <Mermaid>{`
+      graph LR
+        A[Hard] -->|Text| B(Round)
+        B --> C{Decision}
+        C -->|One| D[Result 1]
+        C -->|Two| E[Result 2]
+    `}</Mermaid>
+  </Story>
+</Preview>
+
+Here's a directed acyclic graph:
+
+<Preview>
+  <Story name="DAG">
+    <Mermaid>{`
+      graph LR
+        a --> b & c--> d
+    `}</Mermaid>
+  </Story>
+</Preview>
+
+Here's a more complex example with subgraphs:
+
+<Preview>
+  <Story name="Subgraphs">
+    <Mermaid>{`
+      graph TB
+        c1-->a2
+        subgraph one
+        a1-->a2
+        end
+        subgraph two
+        b1-->b2
+        end
+        subgraph three
+        c1-->c2
+        end
+    `}</Mermaid>
+  </Story>
+</Preview>
+
+The `graph` directive supports a variety of shapes, layout options, and formats. For full documentation, see Mermaid's [flowchart documentation](https://mermaid-js.github.io/mermaid/#/flowchart).
+
+## Sequence diagrams
+
+Mermaid's `sequenceDiagram` visualizes interactions between entities over time. It can be very simple:
+
+<Preview>
+  <Story name="Sequence">
+    <Mermaid>{`
+      sequenceDiagram
+        Alice->>+John: Hey, how are you?
+        Alice->>+John: Can you hear me?
+        John-->>-Alice: Alice, I hear you!
+        John-->>-Alice: I feel great!
+    `}</Mermaid>
+  </Story>
+</Preview>
+
+And can also have complex self-loops, notes, and numbered events:
+
+<Preview>
+  <Story name="Complex Sequence">
+    <Mermaid>{`
+      sequenceDiagram
+        autonumber
+        Alice->>John: Hey, how are you?
+        loop Reflecting
+          John->>John: 
+        end
+        John-->>Alice: Great!
+        John->>Bob: How about you?
+        Note right of Bob: Go Bob! 🚀
+        Bob-->>John: Jolly good!
+    `}</Mermaid>
+  </Story>
+</Preview>
+
+The `sequenceDiagram` directive supports a variety of shapes, options, and interactions. For full documentation, see Mermaid's [sequence documentation](https://mermaid-js.github.io/mermaid/#/sequence).
+
+## Gantt charts
+
+<Preview>
+  <Story name="Gantt">
+    <Mermaid>{`
+      gantt
+        title Storybook release plan
+        dateFormat  YYYY-MM-DD
+        section Doc blocks
+        Depdendencies :done,   a1, 2020-01-05, 15d
+        Mermaid       :active, a2, after a1,   10d
+        Code sandbox  :, after a2,   20d
+        section Composition
+        Basics          :active, 2020-01-12, 24d
+        Authentication  : 12d
+    `}</Mermaid>
+  </Story>
+</Preview>
+
+## Class diagrams
+
+<Preview>
+  <Story name="Class">
+    <Mermaid>{`
+      classDiagram
+        classA <|-- classB
+        classC o-- classD
+        classE <.. classF
+        classG *.. classH
+        classI .. classJ
+    `}</Mermaid>
+  </Story>
+</Preview>
+
+## State diagrams
+
+<Preview>
+  <Story name="State">
+    <Mermaid>{`
+      stateDiagram
+        [*] --> Still
+        Still --> [*]
+        Still --> Moving
+        Moving --> Still
+        Moving --> [*]
+    `}</Mermaid>
+  </Story>
+</Preview>
+
+## Git graph (experimental)
+
+<Preview>
+  <Story name="Git">
+    <Mermaid>{`
+gitGraph:
+options
+{
+  "nodeSpacing": 120,
+  "nodeRadius": 10
+}
+end
+commit
+branch newbranch
+checkout newbranch
+commit
+commit
+checkout master
+commit
+merge newbranch
+    `}</Mermaid>
+  </Story>
+</Preview>
