@@ -18,7 +18,7 @@ Mermaid for React lets you generate great-looking diagrams from markdown-like te
   `}</Mermaid>
 </Preview>
 
-Mermaid for React is a wrapper for the [Mermaid](https://mermaid-js.github.io/mermaid/) diagramming library. It supports all mermaid diagrams including [flowcharts](#flowcharts), [sequence diagrams](#sequence-diagrams), [gantt charts](#gantt-charts), [class diagrams](#class-diagrams), [state diagrams](#state-diagrams) and [more](#pie-charts). It was developed to add diagram support to [Storybook Docs](https://www.npmjs.com/package/@storybook/addon-docs), but it can be used inside _any_ React project.
+Mermaid for React is a wrapper for the [Mermaid](https://mermaid-js.github.io/mermaid/) diagramming library. It supports all mermaid diagrams including [flowcharts](#flowcharts), [sequence diagrams](#sequence-diagrams), [gantt charts](#gantt-charts), [class diagrams](#class-diagrams), [state diagrams](#state-diagrams) and [more](#pie-chart). It was developed to add diagram support to [Storybook Docs](https://www.npmjs.com/package/@storybook/addon-docs), but it can be used inside _any_ React project.
 
 ## Flowcharts
 
@@ -136,6 +136,26 @@ The `sequenceDiagram` directive supports a variety of shapes, options, and inter
         classE <.. classF
         classG *.. classH
         classI .. classJ
+        Animal <|-- Duck
+        Animal <|-- Fish
+        Animal <|-- Zebra
+        Animal : +int age
+        Animal : +String gender
+        Animal: +isMammal()
+        Animal: +mate()
+        class Duck{
+          +String beakColor
+          +swim()
+          +quack()
+        }
+        class Fish{
+          -int sizeInFeet
+          -canEat()
+        }
+        class Zebra{
+          +bool is_wild
+          +run()
+        }
     `}</Mermaid>
   </Story>
 </Preview>
@@ -155,26 +175,75 @@ The `sequenceDiagram` directive supports a variety of shapes, options, and inter
   </Story>
 </Preview>
 
+## User journey
+
+<Preview>
+  <Story name="Journey">
+    <Mermaid>{`
+      journey
+        title My working day
+        section Go to work
+          Make tea: 5: Me
+          Go upstairs: 3: Me
+          Do work: 1: Me, Cat
+        section Go home
+          Go downstairs: 5: Me
+          Sit down: 3: Me
+    `}</Mermaid>
+  </Story>
+</Preview>
+
+## Pie chart
+
+<Preview>
+  <Story name="PieChart">
+    <Mermaid>{`
+      pie title Pets adopted by volunteers
+        "Dogs" : 386
+        "Cats" : 85
+        "Rats" : 15
+    `}</Mermaid>
+  </Story>
+</Preview>
+
+## Entity Relationship
+
+<Preview>
+  <Story name="EntityRelationship">
+    <Mermaid>{`
+      erDiagram
+        CUSTOMER }|..|{ DELIVERY-ADDRESS : has
+        CUSTOMER ||--o{ ORDER : places
+        CUSTOMER ||--o{ INVOICE : "liable for"
+        DELIVERY-ADDRESS ||--o{ ORDER : receives
+        INVOICE ||--|{ ORDER : covers
+        ORDER ||--|{ ORDER-ITEM : includes
+        PRODUCT-CATEGORY ||--|{ PRODUCT : contains
+        PRODUCT ||--o{ ORDER-ITEM : "ordered in"
+    `}</Mermaid>
+  </Story>
+</Preview>
+
 ## Git graph (experimental)
 
 <Preview>
   <Story name="Git">
     <Mermaid>{`
-      gitGraph:
-      options
-      {
-        "nodeSpacing": 120,
-        "nodeRadius": 10
-      }
-      end
-      commit
-      branch newbranch
-      checkout newbranch
-      commit
-      commit
-      checkout master
-      commit
-      merge newbranch
+gitGraph:
+options
+{
+  "nodeSpacing": 120,
+  "nodeRadius": 10
+}
+end
+commit
+branch newbranch
+checkout newbranch
+commit
+commit
+checkout master
+commit
+merge newbranch
     `}</Mermaid>
   </Story>
 </Preview>
