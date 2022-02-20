@@ -22,12 +22,12 @@ Mermaid for React is a wrapper for the [Mermaid](https://mermaid-js.github.io/me
 
 ## Flowcharts
 
-Mermaid's `graph` directive is a powerful way to show everything from simple flowcharts to complex topologies. Here's a simple example to start:
+Mermaid's `flowchart` directive is a powerful way to show everything from simple flowcharts to complex topologies. Here's a simple example to start:
 
 <Canvas>
   <Story name="Flow">
     <Mermaid>{`
-      graph LR
+      flowchart LR
         A[Hard] -->|Text| B(Round)
         B --> C{Decision}
         C -->|One| D[Result 1]
@@ -41,7 +41,7 @@ Here's a directed acyclic graph:
 <Canvas>
   <Story name="DAG">
     <Mermaid>{`
-      graph LR
+      flowchart LR
         a --> b & c--> d
     `}</Mermaid>
   </Story>
@@ -52,7 +52,7 @@ Here's a more complex example with subgraphs:
 <Canvas>
   <Story name="Subgraphs">
     <Mermaid>{`
-      graph TB
+      flowchart TB
         c1-->a2
         subgraph one
         a1-->a2
@@ -63,6 +63,38 @@ Here's a more complex example with subgraphs:
         subgraph three
         c1-->c2
         end
+    `}</Mermaid>
+  </Story>
+</Canvas>
+
+You are also able to [customize specific styles](https://mermaid-js.github.io/mermaid/#/flowchart?id=styling-a-node) per node:
+
+<Canvas>
+  <Story name="CustomStyles">
+    <Mermaid>{`
+    flowchart LR;
+        A[CI MULTI CHAPTCHA]-->B{Select captcha service by developer?};
+        classDef green color:#022e1f,fill:#00f500;
+        classDef red color:#022e1f,fill:#f11111;
+        classDef white color:#022e1f,fill:#fff;
+        classDef black color:#fff,fill:#000;
+        B--YES-->C[How to use?]:::green;
+        
+        C-->U[I choose recaptcha.]:::green;
+        U--Views-->Q["echo CIMC_JS('recaptcha');\n echo CIMC_HTML(['captcha_name'=>'recaptcha']);"]:::green;
+        U--Controller-->W["CIMC_RULE('recaptcha');"]:::green;
+        
+        C-->I[I choose arcaptcha.]:::white;
+        I--Views-->O["echo CIMC_JS('arcaptcha');\n echo CIMC_HTML(['captcha_name'=>'arcaptcha']);"]:::white;
+        I--Controller-->P["CIMC_RULE('arcaptcha');"]:::white;
+        
+        C-->X[I choose bibot.]:::red;
+        X--Views-->V["echo CIMC_JS('bibot');\n echo CIMC_HTML(['captcha_name'=>'bibot']);"]:::red;
+        X--Controller-->N["CIMC_RULE('bibot');"]:::red;
+        
+        B--NO-->D[How to use?]:::black;
+        D---Views:::black-->F["echo CIMC_JS('randomcaptcha');\n echo CIMC_HTML(['captcha_name'=>'randomcaptcha']);"]:::black; 
+        D---Controller:::black-->T["CIMC_RULE('archaptcha,recaptcha,bibot');"]:::black;
     `}</Mermaid>
   </Story>
 </Canvas>
@@ -83,6 +115,21 @@ Mermaid's `sequenceDiagram` visualizes interactions between entities over time. 
         John-->>-Alice: I feel great!
     `}</Mermaid>
   </Story>
+</Canvas>
+
+And also an add [pop-up menus with hyperlinks](https://mermaid-js.github.io/mermaid/#/sequenceDiagram?id=actor-menus), hover on the top nodes to see:
+
+<Canvas>
+  <Mermaid>{`
+sequenceDiagram
+    participant Alice
+    participant John
+    links Alice: {"Dashboard": "https://dashboard.contoso.com/alice", "Wiki": "https://wiki.contoso.com/alice"}
+    links John: {"Dashboard": "https://dashboard.contoso.com/john", "Wiki": "https://wiki.contoso.com/john"}
+    Alice->>John: Hello John, how are you?
+    John-->>Alice: Great!
+    Alice-)John: See you later!
+  `}</Mermaid>
 </Canvas>
 
 And can also have complex self-loops, notes, and numbered events:
