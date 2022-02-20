@@ -1,5 +1,5 @@
-import { Meta, Preview } from '@storybook/addon-docs';
-import { Mermaid } from '@';
+import { Meta, Canvas } from '@storybook/addon-docs';
+import { Mermaid } from '../src';
 
 <Meta title="Mermaid for React" component={Mermaid} />
 
@@ -9,14 +9,14 @@ import { Mermaid } from '@';
 
 Mermaid for React lets you generate great-looking diagrams from markdown-like text.
 
-<Preview>
+<Canvas>
   <Mermaid>{`
     graph LR
     C[Client] <--> LB{{Load Balancer}}
     LB --> A[Server A]
     LB --> B[Server B]
   `}</Mermaid>
-</Preview>
+</Canvas>
 
 Mermaid for React is a wrapper for the [Mermaid](https://mermaid-js.github.io/mermaid/) diagramming library. It supports all mermaid diagrams including [flowcharts](#flowcharts), [sequence diagrams](#sequence-diagrams), [gantt charts](#gantt-charts), [class diagrams](#class-diagrams), [state diagrams](#state-diagrams) and [more](#pie-chart). It was developed to add diagram support to [Storybook Docs](https://www.npmjs.com/package/@storybook/addon-docs), but it can be used inside _any_ React project.
 
@@ -24,7 +24,7 @@ Mermaid for React is a wrapper for the [Mermaid](https://mermaid-js.github.io/me
 
 Mermaid's `graph` directive is a powerful way to show everything from simple flowcharts to complex topologies. Here's a simple example to start:
 
-<Preview>
+<Canvas>
   <Story name="Flow">
     <Mermaid>{`
       graph LR
@@ -34,22 +34,22 @@ Mermaid's `graph` directive is a powerful way to show everything from simple flo
         C -->|Two| E[Result 2]
     `}</Mermaid>
   </Story>
-</Preview>
+</Canvas>
 
 Here's a directed acyclic graph:
 
-<Preview>
+<Canvas>
   <Story name="DAG">
     <Mermaid>{`
       graph LR
         a --> b & c--> d
     `}</Mermaid>
   </Story>
-</Preview>
+</Canvas>
 
 Here's a more complex example with subgraphs:
 
-<Preview>
+<Canvas>
   <Story name="Subgraphs">
     <Mermaid>{`
       graph TB
@@ -65,7 +65,7 @@ Here's a more complex example with subgraphs:
         end
     `}</Mermaid>
   </Story>
-</Preview>
+</Canvas>
 
 The `graph` directive supports a variety of shapes, layout options, and formats. For full documentation, see Mermaid's [flowchart documentation](https://mermaid-js.github.io/mermaid/#/flowchart).
 
@@ -73,7 +73,7 @@ The `graph` directive supports a variety of shapes, layout options, and formats.
 
 Mermaid's `sequenceDiagram` visualizes interactions between entities over time. It can be very simple:
 
-<Preview>
+<Canvas>
   <Story name="Sequence">
     <Mermaid>{`
       sequenceDiagram
@@ -83,11 +83,11 @@ Mermaid's `sequenceDiagram` visualizes interactions between entities over time. 
         John-->>-Alice: I feel great!
     `}</Mermaid>
   </Story>
-</Preview>
+</Canvas>
 
 And can also have complex self-loops, notes, and numbered events:
 
-<Preview>
+<Canvas>
   <Story name="Complex Sequence">
     <Mermaid>{`
       sequenceDiagram
@@ -102,13 +102,13 @@ And can also have complex self-loops, notes, and numbered events:
         Bob-->>John: Jolly good!
     `}</Mermaid>
   </Story>
-</Preview>
+</Canvas>
 
 The `sequenceDiagram` directive supports a variety of shapes, options, and interactions. For full documentation, see Mermaid's [sequence documentation](https://mermaid-js.github.io/mermaid/#/sequence).
 
 ## Gantt charts
 
-<Preview>
+<Canvas>
   <Story name="Gantt">
     <Mermaid>{`
       gantt
@@ -123,11 +123,11 @@ The `sequenceDiagram` directive supports a variety of shapes, options, and inter
         Authentication  : 12d
     `}</Mermaid>
   </Story>
-</Preview>
+</Canvas>
 
 ## Class diagrams
 
-<Preview>
+<Canvas>
   <Story name="Class">
     <Mermaid>{`
       classDiagram
@@ -158,11 +158,11 @@ The `sequenceDiagram` directive supports a variety of shapes, options, and inter
         }
     `}</Mermaid>
   </Story>
-</Preview>
+</Canvas>
 
 ## State diagrams
 
-<Preview>
+<Canvas>
   <Story name="State">
     <Mermaid>{`
       stateDiagram
@@ -173,11 +173,11 @@ The `sequenceDiagram` directive supports a variety of shapes, options, and inter
         Moving --> [*]
     `}</Mermaid>
   </Story>
-</Preview>
+</Canvas>
 
 ## User journey
 
-<Preview>
+<Canvas>
   <Story name="Journey">
     <Mermaid>{`
       journey
@@ -191,11 +191,11 @@ The `sequenceDiagram` directive supports a variety of shapes, options, and inter
           Sit down: 3: Me
     `}</Mermaid>
   </Story>
-</Preview>
+</Canvas>
 
 ## Pie chart
 
-<Preview>
+<Canvas>
   <Story name="PieChart">
     <Mermaid>{`
       pie title Pets adopted by volunteers
@@ -204,11 +204,11 @@ The `sequenceDiagram` directive supports a variety of shapes, options, and inter
         "Rats" : 15
     `}</Mermaid>
   </Story>
-</Preview>
+</Canvas>
 
 ## Entity Relationship
 
-<Preview>
+<Canvas>
   <Story name="EntityRelationship">
     <Mermaid>{`
       erDiagram
@@ -222,11 +222,11 @@ The `sequenceDiagram` directive supports a variety of shapes, options, and inter
         PRODUCT ||--o{ ORDER-ITEM : "ordered in"
     `}</Mermaid>
   </Story>
-</Preview>
+</Canvas>
 
 ## Git graph (experimental)
 
-<Preview>
+<Canvas>
   <Story name="Git">
     <Mermaid>{`
 gitGraph:
@@ -246,4 +246,4 @@ commit
 merge newbranch
     `}</Mermaid>
   </Story>
-</Preview>
+</Canvas>
