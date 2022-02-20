@@ -1,10 +1,12 @@
 import React, { FC, useEffect } from 'react';
 import mermaid from 'mermaid';
 
-const DEFAULT_CONFIG = {
+type MermaidConfig = Parameters<typeof mermaid.initialize>[0];
+
+const DEFAULT_CONFIG: MermaidConfig = {
   startOnLoad: true,
   theme: 'forest',
-  logLevel: 'fatal',
+  logLevel: 5, // debug: 1; info: 2; warn: 3; error: 4; fatal: 5
   securityLevel: 'strict',
   arrowMarkerAbsolute: false,
   flowchart: {
@@ -25,7 +27,6 @@ const DEFAULT_CONFIG = {
     bottomMarginAdj: 1,
     useMaxWidth: true,
     rightAngles: false,
-    showSequenceNumbers: false,
   },
   gantt: {
     titleTopMargin: 25,
@@ -41,12 +42,10 @@ const DEFAULT_CONFIG = {
   },
 };
 
-export interface MermaidProps {
-  name?: any;
-}
+export type MermaidProps = MermaidConfig;
 
-export const Mermaid: FC<MermaidProps> = ({ children }) => {
-  mermaid.initialize(DEFAULT_CONFIG);
+export const Mermaid: FC<MermaidProps> = ({ children, ...mermaidConfig }) => {
+  mermaid.initialize({ ...DEFAULT_CONFIG, ...mermaidConfig });
 
   useEffect(() => {
     mermaid.contentLoaded();

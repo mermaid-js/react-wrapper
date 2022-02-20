@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = {
   stories: [
     '../docs/Intro.stories.mdx',
+    '../docs/Customizing.stories.mdx',
     // '../docs/Flowchart.stories.tsx',
   ],
   addons: [

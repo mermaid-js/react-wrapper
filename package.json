@@ -42,6 +42,7 @@
     "trailingComma": "es5"
   },
   "dependencies": {
+    "@types/mermaid": "^8.2.7",
     "mermaid": "^8.14.0"
   },
   "devDependencies": {

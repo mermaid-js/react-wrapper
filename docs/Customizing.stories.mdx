@@ -1,0 +1,21 @@
+import { Meta, Canvas } from '@storybook/addon-docs';
+import { Mermaid } from '../src';
+
+<Meta title="Recipes/Customization" component={Mermaid} />
+
+# Mermaid for React
+
+---
+
+Mermaid for React accepts [mermaid configs](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/mermaid/mermaidAPI.d.ts#L199) as props so you can fully customize your graphs.
+
+Here's an example of overriding the theme (options: "default" | "forest" | "dark" | "neutral")
+
+<Canvas>
+  <Mermaid theme="dark">{`
+    graph LR
+    C[Client] <--> LB{{Load Balancer}}
+    LB --> A[Server A]
+    LB --> B[Server B]
+  `}</Mermaid>
+</Canvas>
