@@ -1,4 +1,4 @@
-import { Meta, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Preview } from '@storybook/addon-docs';
 import { Mermaid } from '@';
 
 <Meta title="Mermaid for React" component={Mermaid} />
@@ -160,21 +160,21 @@ The `sequenceDiagram` directive supports a variety of shapes, options, and inter
 <Preview>
   <Story name="Git">
     <Mermaid>{`
-gitGraph:
-options
-{
-  "nodeSpacing": 120,
-  "nodeRadius": 10
-}
-end
-commit
-branch newbranch
-checkout newbranch
-commit
-commit
-checkout master
-commit
-merge newbranch
+      gitGraph:
+      options
+      {
+        "nodeSpacing": 120,
+        "nodeRadius": 10
+      }
+      end
+      commit
+      branch newbranch
+      checkout newbranch
+      commit
+      commit
+      checkout master
+      commit
+      merge newbranch
     `}</Mermaid>
   </Story>
 </Preview>
