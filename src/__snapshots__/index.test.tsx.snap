@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mermaid component Render mermaid graph sucessfully 1`] = `
+<div>
+  <div
+    class="mermaid"
+    data-processed="true"
+    style="text-align: center;"
+  >
+    <svg
+      height="450"
+      id="mermaid-4"
+      style="max-width: 0px;"
+      viewBox="0 0 0 450"
+      width="100%"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <style>
+        #mermaid-4 {font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#000000;}#mermaid-4 .error-icon{fill:#552222;}#mermaid-4 .error-text{fill:#552222;stroke:#552222;}#mermaid-4 .edge-thickness-normal{stroke-width:2px;}#mermaid-4 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-4 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-4 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-4 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-4 .marker{fill:#000000;stroke:#000000;}#mermaid-4 .marker.cross{stroke:#000000;}#mermaid-4 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-4 .pieCircle{stroke:black;stroke-width:2px;opacity:0.7;}#mermaid-4 .pieTitleText{text-anchor:middle;font-size:25px;fill:black;font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-4 .slice{font-family:"trebuchet ms",verdana,arial,sans-serif;fill:#000000;font-size:17px;}#mermaid-4 .legend text{fill:black;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:17px;}#mermaid-4 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}
+      </style>
+      <g />
+      <g
+        transform="translate(0,225)"
+      >
+        <path
+          class="pieCircle"
+          d="M0,0Z"
+          fill="#cde498"
+        />
+        <path
+          class="pieCircle"
+          d="M0,0Z"
+          fill="#cdffb2"
+        />
+        <path
+          class="pieCircle"
+          d="M0,0Z"
+          fill="hsl(78.1578947368, 58.4615384615%, 84.5098039216%)"
+        />
+        <text
+          class="slice"
+          style="text-anchor: middle;"
+          transform="translate(-12.046622998838297,-15.964926380157856)"
+        >
+          79%
+        </text>
+        <text
+          class="slice"
+          style="text-anchor: middle;"
+          transform="translate(13.535615974185248,14.723691799252697)"
+        >
+          17%
+        </text>
+        <text
+          class="slice"
+          style="text-anchor: middle;"
+          transform="translate(1.936217414063599,19.906055915863313)"
+        >
+          3%
+        </text>
+        <text
+          class="pieTitleText"
+          x="0"
+          y="-200"
+        >
+          Pets adopted by volunteers
+        </text>
+        <g
+          class="legend"
+          transform="translate(216,-33)"
+        >
+          <rect
+            height="18"
+            style="fill: #cde498; stroke: #cde498;"
+            width="18"
+          />
+          <text
+            x="22"
+            y="14"
+          >
+            Dogs
+          </text>
+        </g>
+        <g
+          class="legend"
+          transform="translate(216,-11)"
+        >
+          <rect
+            height="18"
+            style="fill: #cdffb2; stroke: #cdffb2;"
+            width="18"
+          />
+          <text
+            x="22"
+            y="14"
+          >
+            Cats
+          </text>
+        </g>
+        <g
+          class="legend"
+          transform="translate(216,11)"
+        >
+          <rect
+            height="18"
+            style="fill: hsl(78.1578947368, 58.4615384615%, 84.5098039216%); stroke: hsl(78.1578947368, 58.4615384615%, 84.5098039216%);"
+            width="18"
+          />
+          <text
+            x="22"
+            y="14"
+          >
+            Rats
+          </text>
+        </g>
+      </g>
+    </svg>
+  </div>
+</div>
+`;

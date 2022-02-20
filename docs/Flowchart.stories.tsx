@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mermaid } from '@';
+import { Mermaid } from '../src';
 
 export default {
   title: 'Flowchart',
