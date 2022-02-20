@@ -49,7 +49,7 @@ export const Mermaid: FC<MermaidProps> = ({ children, ...mermaidConfig }) => {
 
   useEffect(() => {
     mermaid.contentLoaded();
-  }, [children]);
+  }, [children, mermaidConfig]);
 
   return (
     <div className="mermaid" style={{ textAlign: 'center' }}>
